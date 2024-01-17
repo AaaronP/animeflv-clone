@@ -1,0 +1,18 @@
+---
+import CardAnime from '../components/CardAnime.astro'
+import getAnimes from '../services/getAnimes'
+
+const animes = await getAnimes()
+---
+
+<div class="flex flex-wrap justify-center items-center gap-5">
+    {
+        animes.map((anime) => (
+            <CardAnime
+                poster={anime.poster}
+                episode={anime.episode}
+                title={anime.title}
+            />
+        ))
+    }
+</div>

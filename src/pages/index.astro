@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro'
+import LatestsEpisodes from '../components/LatestsEpisodes.astro'
+import CurrentAnimes from '../components/CurrentAnimes.astro'
+---
+
+<Layout title="Welcome to Astro.">
+    <div class="flex min-w-screen">
+        <aside
+            class="w-full mx-20 text-center mt-10 rounded py-5 text-3xl text-white font-light border-b-2 border-indigo-500"
+        >
+            <strong class="font-bold">AnimeFLV</strong> tu fuente de anime
+            online gratis en HD
+        </aside>
+    </div>
+
+    <main class="text-white mx-5 my-5 grid grid-cols-2">
+        <CurrentAnimes />
+        <LatestsEpisodes />
+    </main>
+</Layout>
+
+<style>
+    aside {
+        background-image: url('https://64.media.tumblr.com/77701f37d660d3b52309f71161a46ac3/afe2520558284feb-68/s2048x3072/bd01709cdeea84be94a6814516198b26e3fa3643.png');
+    }
+</style>

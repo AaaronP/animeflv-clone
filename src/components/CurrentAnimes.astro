@@ -1,0 +1,43 @@
+---
+import PlayIcon from '../icons/PlayIcon.astro'
+import getCurrentAnimes from '../services/getCurrentAnimes'
+
+const currentAnimes = await getCurrentAnimes()
+---
+
+<article class="bg-white rounded text-black w-[30rem] p-4">
+    <header class="flex flex-row items-center justify-between">
+        <h3 class="font-bold text-2xl">ANIMES EN EMISIÓN</h3>
+        <PlayIcon />
+    </header>
+
+    <ul class="mt-6 flex flex-col gap-4">
+        {
+            currentAnimes.map((anime) => (
+                <li class="flex flex-row justify-between w-full items-center transition cursor-pointer gap-3">
+                    <PlayIcon />
+                    <i class="font-normal not-italic text-2xl truncate w-72">
+                        {anime.title}
+                    </i>
+                    <span class="bg-blue-200 px-6 py-1 font-bold text-sm text-white rounded-2xl">
+                        ANIME
+                    </span>
+                </li>
+            ))
+        }
+    </ul>
+</article>
+
+<style>
+    li:hover {
+        & i {
+            color: rgb(96 165 250);
+        }
+        & span {
+            background-color: rgb(147 197 253);
+        }
+        & svg {
+            color: blue;
+        }
+    }
+</style>
